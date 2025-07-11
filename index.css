@@ -496,7 +496,6 @@ body:not(.user-is-tabbing) a:focus {
     }
 
 
-
 @media(min-width: 901px) {
     .work__image-box {
         flex: 1;
