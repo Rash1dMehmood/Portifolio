@@ -481,19 +481,77 @@ body:not(.user-is-tabbing) a:focus {
         transform: scale(1.2);
     }
 
-.work__image-box {
-    display: flex;
-    gap: 1.5rem; /* spacing between images */
-    flex-wrap: wrap; /* wrap if screen gets smaller */
+/* --------------------------------------- */
+/* ----- Carousel (Single Image Viewer) ----- */
+/* --------------------------------------- */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 180px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-    .work__image-box img {
-        max-width: 180px;
+.carousel__track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel__slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+    .carousel__slide img {
         width: 100%;
         height: auto;
         border-radius: 8px;
         object-fit: cover;
     }
+
+.carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.carousel__btn--left {
+    left: 0.5rem;
+}
+
+.carousel__btn--right {
+    right: 0.5rem;
+}
+
+/* Overriding old multi-image layout for work section */
+.work__image-box {
+    display: block;
+    flex: unset;
+    margin: 0;
+    width: 100%;
+}
+
+/* Optional: Adjust in context */
+@media(max-width: 900px) {
+    .carousel {
+        max-width: 100%;
+    }
+}
 
 
 @media(min-width: 901px) {
